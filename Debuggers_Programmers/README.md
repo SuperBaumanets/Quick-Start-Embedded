@@ -48,12 +48,26 @@ ST-Link V2 представляет собой китайский клон ST-Li
 ![STM32F4Discovery-ST-Link-Connect_UpdateFW](srcImg/STM32F4Discovery-ST-Link-Connect_UpdateFW.jpg)
 
 
-
 ### Проблема
+Для того, чтобы получить информацию о подключенном программаторе и целевом MCU введем в терминале команду:
+```Console
+st-info --probe
+```
+Результат команды:
+
 ![Toolchain / IDE Makefile](srcImg/st-info--probe_Fail.png)
 
+Видим, что программатор не может получить информацию о микроконтроллере.\
+Обратим внимание на версию прошивки - **V2J39S7**,\
 
 ### Обновление прошивки в ОС Windows
+
+![Toolchain / IDE Makefile](srcImg/ST-Update-FW-Version_updateFW.jpg)
+![Toolchain / IDE Makefile](srcImg/STM32-ST_Link-Utility_updateFW.jpg)
+![Toolchain / IDE Makefile](srcImg/STM32-ST_Link-Utility-FW-Update_updateFW.jpg)
+![Toolchain / IDE Makefile](srcImg/ST-Update-ConnectDevice_updateFW.jpg)
+![Toolchain / IDE Makefile](srcImg/ST-Update-UpgradeSuccess_updateFW.jpg)
+![Toolchain / IDE Makefile](srcImg/ST-Update-Upgrade_updateFW.jpg)
 
 Обновление прошивки - https://uchet-jkh.ru/i/kak-prosit-st-link-v2/
 
