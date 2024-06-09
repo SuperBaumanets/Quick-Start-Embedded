@@ -58,27 +58,67 @@ st-info --probe
 ![Toolchain / IDE Makefile](srcImg/st-info--probe_Fail.png)
 
 Видим, что программатор не может получить информацию о микроконтроллере.\
-Обратим внимание на версию прошивки - **V2J39S7**,\
+Обратим внимание на версию прошивки - **V2J39S7**
 
 ### Обновление прошивки в ОС Windows
 
-![Toolchain / IDE Makefile](srcImg/ST-Update-FW-Version_updateFW.jpg)
-![Toolchain / IDE Makefile](srcImg/STM32-ST_Link-Utility_updateFW.jpg)
-![Toolchain / IDE Makefile](srcImg/STM32-ST_Link-Utility-FW-Update_updateFW.jpg)
-![Toolchain / IDE Makefile](srcImg/ST-Update-ConnectDevice_updateFW.jpg)
-![Toolchain / IDE Makefile](srcImg/ST-Update-UpgradeSuccess_updateFW.jpg)
-![Toolchain / IDE Makefile](srcImg/ST-Update-Upgrade_updateFW.jpg)
+Для обновления прошивки ST-Link-а нам потребуется скачать и установить *STM32 ST-LINK utility*. Раньше последнюю версию ПО можно было найти на официальном сайте [STMicroelectronics](https://www.st.com/en/development-tools/stsw-link004.html). В качестве альтернативы официальному сайту можно использовать данный [сайт](https://stm32-st-link-utility.software.informer.com/versions/).
 
-Обновление прошивки - https://uchet-jkh.ru/i/kak-prosit-st-link-v2/
+Скачайте приложение, запустите установщик и следуйте инструкциям на экране для установки программы.
+
+Теперь, когда все необходимое ПО установлено, можно приступить к обновлению прошивки:
+
+1. Запустите программу *STM32 ST-LINK utility* на вашем компьютере.
+
+    ![Toolchain / IDE Makefile](srcImg/STM32-ST_Link-Utility_updateFW.jpg)
+
+2.  Сверху в меню выберите **ST-LINK**, затем **Firmware update**
+
+    ![Toolchain / IDE Makefile](srcImg/STM32-ST_Link-Utility-FW-Update_updateFW.jpg)
+
+3. В появившемся всплывающем окне нажимаем на кнопку **Device Connect**
+
+    ![Toolchain / IDE Makefile](srcImg/ST-Update-ConnectDevice_updateFW.jpg)
+
+4. После того как произошло подключение к нашему программатору видим нашу версию прошивки в графе *Firmware Version* и в графе *Upgrade the firmware to* видим версию прошивки на которую можно обновить наш программатор.
+
+    ![Toolchain / IDE Makefile](srcImg/ST-Update-FW-Version_updateFW.jpg)
+
+5. Для загрузки прошивки нажимаем на кнопку **YES>>>>**. Наблюдаем процесс загрузки новой прошивки на нащ программатор.
+
+    ![Toolchain / IDE Makefile](srcImg/ST-Update-UpgradeSuccess_updateFW.jpg)
+
+    Процесс загрузки завершился успешно, нажимаем на **OK**
+
+    ![Toolchain / IDE Makefile](srcImg/ST-Update-Upgrade_updateFW.jpg)
 
 ### Обновление прошивки в ОС Linux
 
 ### Результат 
 
+Cнова получаем информацию о подключенном программаторе и целевом MCU введя в терминале команду:
+```Console
+st-info --probe
+```
+Результат команды:
+
 ![Toolchain / IDE Makefile](srcImg/st-info--probe_Success.png)
+
+Видим, что программатор получил информацию о микроконтроллере подключенном к нему.\
+Обратим внимание на версию прошивки - **V2J28**. Та самая версия прошивки, которую мы установили с помощью программы *STM32 ST-LINK utility*.
 
 
 ## Доработка ST-Link v2: добавление интерфейса вывода отладочной информации SWO и ноги Reset
+
+В этом разделе будет описана доработка китайского ST-Link v2. В него можно добавить вывод SWO для получения отладочной информации и пин управления Reset’ом для микроконтроллеров STM32 (аналогично выводу RST, который предназначен STM8).
+
+### Проблема 
+
+Используемый для отладки микроконтроллеров STM32 интерфейс SWD поддерживает передачу отладочной информации через вывод SWO в режиме реального времени. По умолчанию в китайском ST-Link v2 он отсутствует, что не дает нам использовать внутренний терминал и функцию printf().  
+
+А вывод Reset нужен для того, чтобы программно использовать Reset, а не нажимать кнопку Reset руками на отладочной плате.
+
+
 
 Распайка - https://habr.com/ru/articles/402927/
 Проблема отсутсвия swo - https://habr.com/ru/articles/749474/
