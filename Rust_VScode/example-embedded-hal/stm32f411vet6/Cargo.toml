@@ -5,15 +5,15 @@ edition = "2021"
 
 # Зависимости для разработки под процессор Cortex-M4
 [dependencies]
-cortex-m = "0.7.7"
-cortex-m-rt = "0.7.1"
+cortex-m = "0.7"
+cortex-m-rt = "0.6"
 cortex-m-semihosting = "0.3.7"
-panic-halt = "1.0.0"
+panic-halt = "0.2.0"
 nb = "1.1.0"
-embedded-hal = "1.0.0"
+embedded-hal = "0.2.0"
 
 # Пакет для разработки под отладочные платы stm32f4
 [dependencies.stm32f4xx-hal]
-version = "0.20.0"
+version = "0.10.0"
 features = ["stm32f411", "rt"]
 

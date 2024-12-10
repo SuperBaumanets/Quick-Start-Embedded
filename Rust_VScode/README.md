@@ -274,9 +274,10 @@ cargo install probe-rs-tools --locked
 probe-rs --version 
 ```
 
-probe-rs run --chip STM32F411VET6U --connect-under-reset ./stm32f411vet6u
-
-
+Загрузка прошивки на устройство, рассматриваемое в данном *README*:
+``` Bash
+probe-rs run --chip STM32F411VET6U --connect-under-reset ./stm32f411vet6u        
+```
 
 ## Настройка VSCode
 
