@@ -282,7 +282,7 @@ probe-rs run --chip STM32F411VET6U --connect-under-reset ./stm32f411vet6u
 ## Настройка VSCode
 
 ## Полезные ссылки
-[The Embedonomicon](https://docs.rust-embedded.org/embedonomicon/custom-target.html)  
-[The Embedded Rust Book](https://docs.rust-embedded.org/book/)  
-[Discovery](https://docs.rust-embedded.org/discovery/f3discovery/) 
-[Примеры](https://github.com/stm32-rs/stm32f4xx-hal/tree/master/examples) 
+- [The Embedonomicon](https://docs.rust-embedded.org/embedonomicon/custom-target.html)  
+- [The Embedded Rust Book](https://docs.rust-embedded.org/book/)  
+- [Discovery](https://docs.rust-embedded.org/discovery/f3discovery/)  
+- [Примеры](https://github.com/stm32-rs/stm32f4xx-hal/tree/master/examples) 
